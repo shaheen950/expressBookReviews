@@ -55,7 +55,8 @@ public_users.get('/',async function (req, res) {
   //Write your code here
   // const TheBooks = books.find({})
   try{
-  await res.send(books);
+  const book = await getBooks()
+  res.send(book)
   }
   catch(err){
 return res.status(300).json({message: "Yet to be implemented"});
@@ -69,7 +70,8 @@ public_users.get('/isbn/:isbn',async function (req, res) {
   //Write your code here
   try{
  const isbn = req.params.isbn
-  await res.send(books[isbn])
+ const search = await books[isbn]
+   res.send(search)
   }
   catch(err){
 return res.status(300).json({message: "Yet to be implemented"});
